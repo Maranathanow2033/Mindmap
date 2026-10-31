@@ -70,6 +70,8 @@ const T = {
     langEnAria: "Show English only",
     langEsAria: "Show Spanish only",
     langBothAria: "Show English and Spanish together",
+    sectionTitle: "Site map",
+    sectionSubtitle: "Explore the contents of this website.",
   },
   es: {
     languageName: "Español",
@@ -91,6 +93,8 @@ const T = {
     langEnAria: "Mostrar solo en inglés",
     langEsAria: "Mostrar solo en español",
     langBothAria: "Mostrar inglés y español juntos",
+    sectionTitle: "Mapa del sitio",
+    sectionSubtitle: "Explora el contenido de este sitio web.",
   },
 };
 
@@ -370,6 +374,11 @@ const CSS = `
 .jdmm-lang button + button { border-left: 1.5px solid var(--jdmm-gold); }
 .jdmm-lang button[aria-pressed="true"] { background: var(--jdmm-crimson); color: var(--jdmm-ivory); }
 
+/* ---- Section heading ---- */
+.jdmm-heading { margin: 0 0 14px; text-align: center; }
+.jdmm-heading-title { margin: 0; font-size: 1.6rem; line-height: 1.2; font-weight: bold; color: var(--jdmm-crimson); }
+.jdmm-heading-sub { margin: 4px 0 0; font-size: 1rem; }
+
 /* ---- Root image ---- */
 .jdmm-rootimg { display: block; width: 100%; height: auto; border: 2px solid var(--jdmm-gold); border-radius: 4px; }
 .jdmm-error {
@@ -573,6 +582,12 @@ export default function JesusDecodedMindMap({
           </button>
         </div>
       </div>
+
+      {/* Section heading (translated with the language toggle) */}
+      <header className="jdmm-heading">
+        <h2 className="jdmm-heading-title">{ui("sectionTitle", lang)}</h2>
+        <p className="jdmm-heading-sub">{ui("sectionSubtitle", lang)}</p>
+      </header>
 
       {/* Root of the mind map: the central image */}
       {imgFailed ? (
